@@ -1,13 +1,35 @@
-{% extends '_base.html'%} {% block title%} Galeria {% endblock title %}
+{% extends '_base.html'%}
+{% load static %}
+{% block title%}
+  Galeria
+{% endblock title %}
 {% block content%}
-<h1>Inicio</h1>
-{% if user.is_authenticated %}
-Hola, {{user.email}}
-<p><a href="{% url 'logout' %}">Log out</a></p>
-{% else %}
-<p>No estás logeado</p>
-<a href="{% url 'login' %}">Entrar</a>
-<a href="{% url 'signup'%}">Registrarse</a>
-{% endif %}
+
+<!-- <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">
+  Thumbnail Gallery
+</h1> -->
+
+<hr class="mt-2 mb-5" />
+
+<div class="row text-center text-lg-left">
+  <div class="col-lg-3 col-md-4 col-6">
+    <a href="#" class="d-block mb-4 h-100">
+      <img
+        class="img-fluid img-thumbnail"
+        src="https://pbs.twimg.com/media/EY-mG0pXsAIHFws?format=jpg&name=900x900"
+        alt=""
+      />
+    </a>
+  </div>
+</div>
+
+<h1>Static</h1>
+<img class="img" src="{% static 'images/Eckart_Hahn.jpg' %}" alt="" />
+<h1>Internet</h1>
+<img
+  class="img"
+  src="https://pbs.twimg.com/media/EY-mG0pXsAIHFws?format=jpg&name=900x900"
+  alt=""
+/>
 
 {% endblock content%}
