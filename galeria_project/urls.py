@@ -6,7 +6,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Usuarios
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('allauth.urls')),
 
     # Local apps
     path('accounts/', include('users.urls')),
