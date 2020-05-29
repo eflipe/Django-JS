@@ -10,5 +10,6 @@ urlpatterns = [
 
     # Local apps
     path('accounts/', include('users.urls')),
-    path('', include('static_pages.urls')),
+    path('static/', include('static_pages.urls')),
+    path('', include('galeria_app.urls')),
 ]

@@ -1,0 +1,31 @@
+{% extends '_base.html'%}
+{% load static %}
+{% block title%}
+  {{ authors_detail_obj.author}}
+{% endblock title %}
+
+{% block content %}
+<h1 class="my-4">{{ authors_detail_obj.author}}
+    <small>Web: www.fulano.megano.org</small>
+</h1>
+
+<div class="row text-center text-lg-left">
+
+</div>
+
+{% endblock content %}
+
+<!-- {% for author in authors_detail_obj %}
+
+  <div class="col-lg-3 col-md-4 col-6">
+    <a href="#" class="d-block mb-4 h-100">
+      <img
+        class="img-fluid img-thumbnail"
+        src="{{author.url_pic}}"
+        alt="{{author.title}}"
+        title="{{author.author}} - {{author.title}}"
+      />
+    </a>
+  </div>
+
+{% endfor %} -->

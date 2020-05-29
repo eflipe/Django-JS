@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     #Local apps
     'users.apps.UsersConfig',
     'static_pages.apps.StaticPagesConfig',
+    'galeria_app.apps.GaleriaAppConfig',
 ]
 
 MIDDLEWARE = [
