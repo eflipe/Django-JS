@@ -1,10 +1,17 @@
 from django.contrib import admin
 
-from .models import pictures
+from .models import Autor, Pictures
+
+
+class PicturesInline(admin.TabularInline):
+    model = Pictures
 
 
 class PicAdmin(admin.ModelAdmin):
-    list_display = ("title", "author",)
+    inlines = [
+        PicturesInline,
+    ]
+    list_display = ("author", "url_web", )
 
 
-admin.site.register(pictures, PicAdmin)
+admin.site.register(Autor, PicAdmin)

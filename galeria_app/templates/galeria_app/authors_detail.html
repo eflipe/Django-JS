@@ -6,26 +6,26 @@
 
 {% block content %}
 <h1 class="my-4">{{ authors_detail_obj.author}}
-    <small>Web: www.fulano.megano.org</small>
+    <small>Web: {{authors_detail_obj.url_web}}</small>
 </h1>
+<small>{{authors_detail_obj.description}}</small>
 
 <div class="row text-center text-lg-left">
+  {% for author in authors_detail_obj.pictures.all %}
+
+    <div class="col-lg-3 col-md-4 col-6">
+      <a href="#" class="d-block mb-4 h-100">
+        <img
+          class="img-fluid img-thumbnail"
+          src="{{author.url_pic}}"
+          alt="{{author.title}}"
+          title="{{author.autor}} - {{author.title}}"
+        />
+      </a>
+    </div>
+
+  {% endfor %}
 
 </div>
 
 {% endblock content %}
-
-<!-- {% for author in authors_detail_obj %}
-
-  <div class="col-lg-3 col-md-4 col-6">
-    <a href="#" class="d-block mb-4 h-100">
-      <img
-        class="img-fluid img-thumbnail"
-        src="{{author.url_pic}}"
-        alt="{{author.title}}"
-        title="{{author.author}} - {{author.title}}"
-      />
-    </a>
-  </div>
-
-{% endfor %} -->
