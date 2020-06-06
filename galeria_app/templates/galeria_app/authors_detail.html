@@ -5,16 +5,24 @@
 {% endblock title %}
 
 {% block content %}
-<h1 class="my-4">{{ authors_detail_obj.author}}
-    <small>Web: {{authors_detail_obj.url_web}}</small>
-</h1>
-<small>{{authors_detail_obj.description}}</small>
+
+<h1 class="my-2">{{ authors_detail_obj.author}}</h1>
+
+  <h2>
+    <small>{{authors_detail_obj.description}}</small>
+  </h2>
+
+<h3 class="mb-3">
+  <a href="{{authors_detail_obj.url_web}}" class="">
+  <small>Sitio web del autor</small>
+  </a>
+</h3>
 
 <div class="row text-center text-lg-left">
   {% for author in authors_detail_obj.pictures.all %}
 
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
+      <a href="{{author.url_pic}}" class="d-block mb-4 h-100">
         <img
           class="img-fluid img-thumbnail"
           src="{{author.url_pic}}"

@@ -9,6 +9,7 @@ class PicsListView(ListView):
     model = Pictures
     context_object_name = 'pics_list'
     template_name = 'galeria_app/pics_list.html'
+    ordering = ['-id']
 
 
 class AuthorsListView(ListView):
