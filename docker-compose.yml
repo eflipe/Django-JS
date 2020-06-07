@@ -3,7 +3,9 @@ version: "3.7"
 services:
   web:
     build: .
-    command: python /code/manage.py runserver 0.0.0.0:8000
+    # command: python /code/manage.py runserver 0.0.0.0:8000
+    command: gunicorn galeria_project.wsgi -b 0.0.0.0:8000
+
     environment:
       - ENVIRONMENT=development
       - SECRET_KEY=z!$$4o*1am9w%4*d%b)sx^rjj3(drc^otm17if+03$$#c0y*)ed_
