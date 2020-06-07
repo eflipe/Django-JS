@@ -22,7 +22,7 @@
   {% for author in authors_detail_obj.pictures.all %}
 
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="{{author.url_pic}}" class="d-block mb-4 h-100">
+      <a href="{{author.url_pic}}" class="d-block mb-4">
         <img
           class="img-fluid img-thumbnail"
           src="{{author.url_pic}}"
@@ -30,6 +30,12 @@
           title="{{author.autor}} - {{author.title}}"
         />
       </a>
+        <div class="">
+          <h6 class="card-subtitle mb-2 ml-1 text-muted">
+            {{author.title}}
+          </h6>
+
+        </div>
     </div>
 
   {% endfor %}

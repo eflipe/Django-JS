@@ -1,0 +1,25 @@
+{% extends '_base.html'%}
+{% load static %}
+{% block title%} Galeria
+{% endblock title %}
+{% block content %}
+
+
+<div class="grid">
+    {% for pic in pics_list %}
+    <div class="grid-item">
+      <a href="{{ pic.autor.get_absolute_url }}" class="d-block mb-4 h-100">
+        <img
+          class="img-fluid img-thumbnail"
+          src="{{pic.url_pic}}"
+          alt="{{pic.title}}"
+          title="{{pic.autor.author}} - {{pic.title}}"
+        />
+      </a>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+{% endblock content %}
