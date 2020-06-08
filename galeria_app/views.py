@@ -34,3 +34,10 @@ class SearchResultsView(ListView):
         return Autor.objects.filter(
                Q(author__icontains=query)
         )
+
+
+class PicsSlideView(ListView):
+    context_object_name = 'pics_slide'
+    model = Pictures
+    template_name = 'galeria_app/pics_slide_copy.html'
+    ordering = ['-id']

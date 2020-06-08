@@ -1,0 +1,41 @@
+{% extends "_base.HTML" %}
+{% load static %}
+{% block title %}
+  Slide
+{% endblock title %}
+{% block content %}
+
+<div class="col-6 centered">
+<div id="demo" class="carousel slide" data-ride="carousel">
+<div class="carousel-inner" role="listbox">
+  <div class="carousel-item active">
+    {% with pics_slide|first as first %}
+    <img class="d-block w-100 h-50"src="{{ first.url_pic }}" alt="{{first.autor.author}} - {{first.title}}">
+    <div class="text-center">
+      <h4>{{first.autor.author}}</h4>
+      <p>{{first.title}}</p>
+    </div>
+    </div>
+    {% endwith %}
+    {% with pics_slide|slice:"1:" as pics_slide_2 %}
+    {% for pic in pics_slide_2  %}
+      <div class="carousel-item">
+        <img class="d-block w-100 h-50" src="{{pic.url_pic}}" alt="{{pic.autor.author}} - {{pic.title}}">
+        <div class="text-center">
+          <h4>{{pic.autor.author}}</h4>
+          <p>{{pic.title}}</p>
+        </div>
+      </div>
+    {% endfor %}
+    {% endwith %}
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+</div>
+</div>
+
+{% endblock content %}

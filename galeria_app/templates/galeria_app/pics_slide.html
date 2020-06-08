@@ -1,0 +1,43 @@
+{% extends "_base.HTML" %}
+{% load static %}
+{% block title %}
+  Slide
+{% endblock title %}
+{% block content %}
+
+<div class="row text-center">
+    <div class="col-6">
+        <div id="carousel" class="carousel slide" data-ride="carousel" style="display: inline-block;">
+            <!-- Индикаторы -->
+            <div class="carousel-inner">
+              <div id="slide_1" class="carousel-item active">
+              {% with pics_slide|first as first %}
+                    <img class="d-block w-100 h-50" class="h-50 d-inline-block" src="{{ first.url_pic }}" alt="...">
+                </div>
+              {% endwith %}
+              {% with pics_slide|slice:"1:" as pics_slide_2 %}
+              {% for pic in pics_slide_2  %}
+              <div id="slide_2" class="carousel-item">
+                  <img class="d-block w-100 h-50" class="h-50 d-inline-block" src="{{pic.url_pic}}" alt="...">
+              </div>
+              {% endfor %}
+              {% endwith %}
+
+
+            </div>
+            <!-- Элементы управления -->
+            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Предыдущий</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Следующий</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}
