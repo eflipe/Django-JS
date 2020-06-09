@@ -37,7 +37,7 @@ class SearchResultsView(ListView):
 
 
 class PicsSlideView(ListView):
-    context_object_name = 'pics_slide'
     model = Pictures
+    context_object_name = 'pics_slide'
     template_name = 'galeria_app/pics_slide_copy.html'
     ordering = ['-id']
