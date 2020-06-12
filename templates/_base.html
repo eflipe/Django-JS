@@ -41,13 +41,27 @@
     </nav> -->
     </header>
     <div class="container">
+      <nav class="navbar navbar-expand-sm bg-light navbar-light">
+        <ul id="navbar" class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'pics_list' %}">Version 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'pics_list_version_js' %}">Version 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'authors_list' %}">Artistas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'pics_slide' %}">Slide BS</a>
+          </li>
+        </ul>
+      </nav>
       <a href="{% url 'pics_list' %}">
         <hr class="mt-2 mb-5" />
       </a>
+      {% block content %}
 
-
-
-      {% block content%}
       {% endblock content%}
     </div>
     {% block js %}
@@ -68,6 +82,7 @@
       crossorigin="anonymous"
     ></script>
     <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/pics_list_version_js.js' %}"></script>
     {% endblock js %}
   </body>
 </html>

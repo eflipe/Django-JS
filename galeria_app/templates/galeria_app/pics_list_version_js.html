@@ -1,0 +1,48 @@
+{% extends "_base.HTML" %}
+{% load static %}
+{% block title %}
+  v2
+{% endblock title %}
+{% block content %}
+
+<div class="galleries">
+  <div class="galeria">
+    {% for pic in pics_list  %}
+    <img
+      src="{{pic.url_pic}}"
+      alt="pic"
+      tabindex="0"
+      title="{{pic.title}}"
+      data-description="{{pic.autor.author}}"
+      data-link = "{{pic.autor.get_absolute_url}}"
+    />
+    {% endfor %}
+  </div>
+
+  <div class="modal">
+  <div class="modalInner">
+    <button aria-label="Previous Photo" class="prev">←</button>
+    <figure>
+      <img src="{{ pics_list.url_pic }}" />
+      <figcaption>
+        <h2>Test Title</h2>
+        <a href="{{ pics_list.autor.get_absolute_url }}">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+          dignissimos obcaecati nisi placeat eaque voluptate,
+          exercitationem eius? Non, iusto provident itaque, voluptate
+          labore a alias officia, amet sunt pariatur praesentium tenetur
+          voluptatibus dolores mollitia quasi aliquid assumenda possimus
+          maiores exercitationem!
+        </p>
+        </a>
+      </figcaption>
+    </figure>
+    <button class="next" aria-label="Next Photo">→</button>
+  </div>
+  </div>
+
+</div>
+
+
+{% endblock content %}

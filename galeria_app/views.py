@@ -12,6 +12,13 @@ class PicsListView(ListView):
     ordering = ['-id']
 
 
+class PicsListViewJS(ListView):
+    model = Pictures
+    context_object_name = 'pics_list'
+    template_name = 'galeria_app/pics_list_version_js.html'
+    ordering = ['-id']
+
+
 class AuthorsListView(ListView):
     model = Autor
     context_object_name = 'authors_list'

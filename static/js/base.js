@@ -1,9 +1,12 @@
 console.log("JS aquí!");
-$("#menu-close").click(function(e) {
-  e.preventDefault();
-  $("#sidebar-wrapper").toggleClass("active");
-});
-$("#menu-toggle").click(function(e) {
-  e.preventDefault();
-  $("#sidebar-wrapper").toggleClass("active");
+// $( '#navbar' ).on( 'click', function () {
+// 	$( '#navbar' ).find( 'li.active' ).removeClass( 'active' );
+// 	$( this ).parent( 'li' ).addClass( 'active' );
+// });
+
+jQuery( document ).ready( function($) {
+  $( '#navbar' ).on( 'click', function () {
+  	$( '#navbar' ).find( 'li.active' ).removeClass( 'active' );
+  	$( this ).parent( 'li' ).addClass( 'active' );
+  });
 });
