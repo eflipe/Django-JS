@@ -1,7 +1,6 @@
 console.log("JS v2");
 
 function Galeria(galeria) {
-
   const images = Array.from(galeria.querySelectorAll("img"));
 
   const modal = document.querySelector(".modal");
@@ -13,9 +12,7 @@ function Galeria(galeria) {
 
   //fc: open foto
   function openModal() {
-
     if (modal.matches(".open")) {
-
       return;
     }
     modal.classList.add("open");
@@ -89,7 +86,7 @@ function Galeria(galeria) {
   images.forEach((image) => {
     image.addEventListener("keyup", (event) => {
       if (event.key === "Enter") {
-        console.log('holis');
+        console.log("holis");
         showImage(event.currentTarget);
       }
     });
