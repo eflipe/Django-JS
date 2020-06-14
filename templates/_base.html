@@ -43,8 +43,8 @@
     <div class="container">
       <nav class="navbar navbar-expand-sm bg-light navbar-light">
         <ul id="navbar" class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'pics_list' %}">Version 1</a>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'pics_v1' %}">Version 1</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'pics_list_version_js' %}">Version 2</a>
@@ -57,7 +57,7 @@
           </li>
         </ul>
       </nav>
-      <a href="{% url 'pics_list' %}">
+      <a href="{% url 'pics_v1' %}">
         <hr class="mt-2 mb-5" />
       </a>
       {% block content %}
@@ -83,6 +83,15 @@
     ></script>
     <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/pics_list_version_js.js' %}"></script>
+
+    <script type="text/javascript">
+
+    $(function() {
+        console.log(location.pathname);
+        $('nav li a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
+      });
+
+    </script>
     {% endblock js %}
   </body>
 </html>
