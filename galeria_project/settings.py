@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     # 3rd APP
+    'rest_framework',
+    'corsheaders',
     'crispy_forms',
     'allauth',
     'allauth.account',
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'static_pages.apps.StaticPagesConfig',
     'galeria_app.apps.GaleriaAppConfig',
+    'api_app.apps.ApiAppConfig',
 ]
 
 MIDDLEWARE = [
@@ -46,6 +49,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -152,6 +156,21 @@ AUTHENTICATION_BACKENDS = (
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+
+# django-rest-framework
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
+
+# cors
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+    'http://localhost:8000',
+)
+
+
 
 # django-debug-toolbar
 import socket

@@ -6,7 +6,7 @@ from django.urls import reverse
 class Autor(models.Model):
 
     author = models.CharField('Nombre', max_length=444)
-    description = models.CharField(max_length=444)
+    description = models.CharField(max_length=444, blank=True)
     url_web = models.URLField(max_length=200, null=True)
     slug = models.SlugField(primary_key=True, unique=True, blank=True)
 
