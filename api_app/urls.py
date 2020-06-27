@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import GaleriaAPIView
+from rest_framework.routers import SimpleRouter
+
+from .views import GaleriaViewSet
 
 
-urlpatterns = [
-    path('', GaleriaAPIView.as_view()),
-]
+router = SimpleRouter()
+router.register('v1', GaleriaViewSet, basename='api_app')
+urlpatterns = router.urls

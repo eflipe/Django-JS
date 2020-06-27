@@ -14,7 +14,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = ['heyheymycode.herokuapp.com','cryptic-waters-52358.herokuapp.com', '192.168.99.100', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['heyheymycode.herokuapp.com', 'web', '192.168.99.100', '127.0.0.1', 'localhost', 'backend']
 
 
 # Application definition
@@ -31,6 +31,9 @@ INSTALLED_APPS = [
 
     # 3rd APP
     'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
     'corsheaders',
     'crispy_forms',
     'allauth',
@@ -160,14 +163,22 @@ ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 # django-rest-framework
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ]
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+
 }
 
 # cors
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
     'http://localhost:8000',
+    'http://192.168.99.100:3000',
+    'http://192.168.99.100:8000',
+
 )
 
 

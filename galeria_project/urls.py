@@ -11,6 +11,9 @@ urlpatterns = [
 
     # Local apps
     path('api/', include('api_app.urls')),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/v1/dj-rest-auth/', include('dj_rest_auth.urls')),
+    path('api/v1/dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
     path('accounts/', include('users.urls')),
     path('static/', include('static_pages.urls')),
     path('', include('galeria_app.urls')),
