@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+td a {
+  color: #f0f2f6;
+  text-decoration: none !important;
+  background-color: transparent;
+
+}
