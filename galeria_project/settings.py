@@ -67,7 +67,11 @@ ROOT_URLCONF = 'galeria_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            # os.path.join(BASE_DIR, "frontend", "build"),
+            os.path.join(BASE_DIR, "frontend", "public"),
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,14 +138,24 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+# INSTALLED_APPS.extend(["whitenoise.runserver_nostatic"])
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [
+                    os.path.join(BASE_DIR, 'static'),
+                    #os.path.join(BASE_DIR, "frontend", "build", "static"),
+                    os.path.join(BASE_DIR, "frontend", "public"),
+                    ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+WHITENOISE_ROOT = os.path.join(BASE_DIR, "frontend", "build", "root")
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
+
+
+
 
 # Sign up
 LOGIN_REDIRECT_URL = 'pics_list'
@@ -197,6 +211,7 @@ CACHE_MIDDLEWARE_ALIAS = 'default'
 CACHE_MIDDLEWARE_SECONDS = 604800
 CACHE_MIDDLEWARE_KEY_PREFIX = ''
 
+CSRF_COOKIE_NAME = "csrftoken"
 # production
 if ENVIRONMENT == 'production':
     SECURE_BROWSER_XSS_FILTER = True

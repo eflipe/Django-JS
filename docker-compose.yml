@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  web: #backend
+  backend: #backend
     build: .
     # command: python /code/manage.py runserver 0.0.0.0:8000
     command: gunicorn galeria_project.wsgi -b 0.0.0.0:8000
@@ -11,7 +11,7 @@ services:
       - SECRET_KEY=z!$$4o*1am9w%4*d%b)sx^rjj3(drc^otm17if+03$$#c0y*)ed_
       - DEBUG=1
     volumes:
-      - .:/code
+      - .:/code/
     ports:
       - 8000:8000
     stdin_open: true
@@ -21,16 +21,16 @@ services:
   frontend:
     build: ./frontend
     volumes:
-      - ./frontend:/code/frontend
+      - ./frontend:/code
       # One-way volume to use node_modules from inside image
-      - /code/frontend/node_modules
+      - /code/node_modules
     ports:
       - 3000:3000
     stdin_open: true
     environment:
       - NODE_ENV=development
     depends_on:
-      - web
+      - backend
     command: npm start
 
   db:
