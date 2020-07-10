@@ -7,7 +7,7 @@ services:
     command: gunicorn galeria_project.wsgi -b 0.0.0.0:8000
     environment:
       - ENVIRONMENT=production
-      - SECRET_KEY=z!$$4o*1am9w%4*d%b)sx^rjj3(drc^otm17if+03$$#c0y*)ed_
+      - SECRET_KEY=bastadeclavessecretas1234
       - DEBUG=0
     ports:
       - 8000:8000

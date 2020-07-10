@@ -38,7 +38,7 @@ RUN mkdir root && mv *.ico *.js *.json root
 WORKDIR /code/
 
 # SECRET_KEY is only included here to avoid raising an error when generating static files
-RUN  SECRET_KEY=z!$$4o*1am9w%4*d%b)sx^rjj3(drc^otm17if+03$$#c0y*)ed_ \
+RUN  SECRET_KEY=bastadeclavessecretas1234 \
      python manage.py collectstatic --noinput
 
 EXPOSE $PORT
