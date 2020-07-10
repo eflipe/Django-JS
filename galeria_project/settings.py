@@ -69,8 +69,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
-            # os.path.join(BASE_DIR, "frontend", "build"),
-            os.path.join(BASE_DIR, "frontend", "public"),
+            os.path.join(BASE_DIR, "frontend", "build"),
+            # os.path.join(BASE_DIR, "frontend", "public"),
             ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -143,8 +143,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
                     os.path.join(BASE_DIR, 'static'),
-                    #os.path.join(BASE_DIR, "frontend", "build", "static"),
-                    os.path.join(BASE_DIR, "frontend", "public"),
+                    os.path.join(BASE_DIR, "frontend", "build", "static"),
+                    # os.path.join(BASE_DIR, "frontend", "public"),
                     ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
@@ -190,6 +190,8 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
     'http://localhost:8000',
+    'http://127.0.0.1:8000',
+    'http://127.0.0.1:3000',
     'http://192.168.99.100:3000',
     'http://192.168.99.100:8000',
 
