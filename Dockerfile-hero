@@ -10,7 +10,7 @@ RUN apt-get -y install curl \
 WORKDIR /code/
 
 # Install Python dependencies
-COPY Pipfile Pipfile.lock /code/backend/
+COPY Pipfile Pipfile.lock /code/
 RUN pip install pipenv && pipenv install --system
 
 # Install JS dependencies
